@@ -1,0 +1,116 @@
+{
+  "domains": [
+    {
+      "name": "software engineer",
+      "synonyms": ["sde", "sde-1", "software developer", "application developer"],
+      "boostSkills": ["java", "python", "c++", "dsa", "oop"]
+    },
+    {
+      "name": "full stack developer",
+      "synonyms": ["fullstack developer", "full stack engineer", "mern developer"],
+      "boostSkills": ["javascript", "react", "node", "mongodb", "next.js"]
+    },
+    {
+      "name": "backend developer",
+      "synonyms": ["backend engineer", "server-side developer", "api developer"],
+      "boostSkills": ["node", "python", "java", "sql", "mongodb"]
+    },
+    {
+      "name": "mobile app developer",
+      "synonyms": ["mobile developer", "app developer", "software engineer mobile"],
+      "boostSkills": ["android", "kotlin", "java", "flutter", "firebase"]
+    },
+    {
+      "name": "android engineer",
+      "synonyms": ["android developer", "kotlin developer", "android app developer"],
+      "boostSkills": ["kotlin", "android sdk", "jetpack", "mvvm", "firebase"]
+    },
+
+    {
+      "name": "machine learning engineer",
+      "synonyms": ["ml engineer", "ai engineer", "mlops engineer"],
+      "boostSkills": ["python", "pytorch", "tensorflow", "scikit-learn", "numpy"]
+    },
+    {
+      "name": "data scientist",
+      "synonyms": ["data science engineer", "junior data scientist", "ai data scientist"],
+      "boostSkills": ["python", "pandas", "numpy", "ml", "statistics"]
+    },
+    {
+      "name": "data analyst",
+      "synonyms": ["business data analyst", "analytics engineer", "data associate"],
+      "boostSkills": ["sql", "excel", "python", "power bi", "tableau"]
+    },
+    {
+      "name": "generative ai engineer",
+      "synonyms": ["llm engineer", "rag engineer", "ai application engineer"],
+      "boostSkills": ["python", "transformers", "langchain", "llm", "faiss"]
+    },
+
+    {
+      "name": "devops engineer",
+      "synonyms": ["cloud devops engineer", "platform engineer", "infra engineer"],
+      "boostSkills": ["docker", "kubernetes", "aws", "ci/cd", "linux"]
+    },
+    {
+      "name": "site reliability engineer",
+      "synonyms": ["sre", "reliability engineer", "production engineer"],
+      "boostSkills": ["linux", "monitoring", "kubernetes", "scripting", "cloud"]
+    },
+
+    {
+      "name": "embedded software engineer",
+      "synonyms": ["firmware engineer", "embedded engineer", "embedded systems engineer"],
+      "boostSkills": ["c", "c++", "rtos", "microcontrollers", "embedded c"]
+    },
+    {
+      "name": "iot engineer",
+      "synonyms": ["iot developer", "embedded iot engineer", "hardware software engineer"],
+      "boostSkills": ["esp32", "arduino", "sensors", "mqtt", "python"]
+    },
+    {
+      "name": "firmware engineer",
+      "synonyms": ["embedded firmware engineer", "low level programmer", "device firmware developer"],
+      "boostSkills": ["c", "c++", "rtos", "drivers", "hardware"]
+    },
+
+    {
+      "name": "vlsi engineer",
+      "synonyms": ["asic engineer", "chip design engineer", "semiconductor engineer"],
+      "boostSkills": ["verilog", "vhdl", "rtl", "asic", "fpga"]
+    },
+    {
+      "name": "rtl design engineer",
+      "synonyms": ["rtl engineer", "digital design engineer", "logic design engineer"],
+      "boostSkills": ["verilog", "vhdl", "rtl", "fsm", "timing"]
+    },
+    {
+      "name": "verification engineer",
+      "synonyms": ["vlsi verification engineer", "design verification engineer", "dv engineer"],
+      "boostSkills": ["systemverilog", "uvm", "testbench", "verification", "debugging"]
+    },
+    {
+      "name": "fpga engineer",
+      "synonyms": ["fpga developer", "hardware design engineer", "digital hardware engineer"],
+      "boostSkills": ["verilog", "fpga", "quartus", "modelsim", "hdl"]
+    },
+
+    {
+      "name": "qa engineer",
+      "synonyms": ["test engineer", "software tester", "qa analyst"],
+      "boostSkills": ["testing", "selenium", "manual testing", "automation", "jira"]
+    },
+    {
+      "name": "sdet",
+      "synonyms": ["software development engineer in test", "automation test engineer", "qa automation engineer"],
+      "boostSkills": ["java", "selenium", "testng", "automation", "api testing"]
+    },
+    {
+      "name": "graduate engineer trainee",
+      "synonyms": ["get", "engineering trainee", "graduate trainee engineer"],
+      "boostSkills": ["problem solving", "communication", "technical basics", "adaptability"]
+    }
+  ],
+  "lastHours": 24,
+  "maxJobs": 150
+}
