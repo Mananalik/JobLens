@@ -111,7 +111,7 @@ const isRemoteJob = (job) => {
 }
 
 const passesGeoPolicy = (job) => {
-  if (isIndiaJob(job)) return isOnsiteJob(job)
+  if (isIndiaJob(job)) return true
   return isRemoteJob(job)
 }
 

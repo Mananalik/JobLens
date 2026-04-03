@@ -331,7 +331,7 @@ const isIndiaLocation = (location: string) => {
 
 const passesGeoPolicyUi = (job: Job) => {
   if (isIndiaLocation(job.location)) {
-    return job.workType === 'Onsite'
+    return true
   }
   return job.workType === 'Remote'
 }
@@ -860,20 +860,20 @@ function App() {
   }, [jobs, debouncedSearch, workTypeFilter, locationFilter, seniorityFilter, sortBy])
 
   const topMatches = useMemo(
-    () => [...jobs].sort((a, b) => b.matchScore - a.matchScore).slice(0, 3),
-    [jobs],
+    () => [...filteredJobs].sort((a, b) => b.matchScore - a.matchScore).slice(0, 3),
+    [filteredJobs],
   )
 
   const distribution = useMemo(() => {
     const buckets = [0, 0, 0, 0]
-    jobs.forEach((job) => {
+    filteredJobs.forEach((job) => {
       if (job.matchScore >= 76) buckets[3] += 1
       else if (job.matchScore >= 51) buckets[2] += 1
       else if (job.matchScore >= 26) buckets[1] += 1
       else buckets[0] += 1
     })
     return buckets
-  }, [jobs])
+  }, [filteredJobs])
 
   const trackerJobs = useMemo(() => {
     const allIds = new Set(Object.values(trackerState.columns).flat())
@@ -1393,7 +1393,12 @@ function App() {
           <>
             <section className="grid lg:grid-cols-[2fr_1fr] gap-6">
               <div className="glass rounded-3xl p-6 space-y-4">
-                <h2 className="text-xl font-semibold">Top Matches</h2>
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="text-xl font-semibold">Top Matches</h2>
+                  <span className="text-xs text-slate-400">
+                    {filteredJobs.length} results after filters
+                  </span>
+                </div>
                 <div className="grid gap-4">
                   {topMatches.map((job) => (
                     <div key={job.id} className="flex items-center justify-between gap-4 p-4 rounded-2xl bg-white/5">
@@ -1424,7 +1429,7 @@ function App() {
                         <div
                           className="h-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400"
                           style={{
-                            width: `${Math.min(100, (distribution[index] / Math.max(1, jobs.length)) * 100)}%`,
+                              width: `${Math.min(100, (distribution[index] / Math.max(1, filteredJobs.length)) * 100)}%`,
                           }}
                         />
                       </div>
@@ -1441,79 +1446,162 @@ function App() {
                   : 'space-y-4'
               }
             >
-              {filteredJobs.map((job) => (
-                <motion.div
-                  key={job.id}
-                  whileHover={{ y: -6 }}
-                  className="glass rounded-3xl p-5 space-y-4 border border-white/10"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                        <CompanyLogo name={job.company} logo={job.logo} />
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
-                          {job.company}
-                        </p>
-                        <h3 className="text-lg font-semibold text-white">{job.title}</h3>
-                        <p className="text-xs text-slate-400">{job.location}</p>
+              {filteredJobs.map((job) =>
+                viewMode === 'grid' ? (
+                  <motion.div
+                    key={job.id}
+                    whileHover={{ y: -6 }}
+                    className="glass rounded-3xl p-5 space-y-4 border border-white/10"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                          <CompanyLogo name={job.company} logo={job.logo} />
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                            {job.company}
+                          </p>
+                          <h3 className="text-lg font-semibold text-white">{job.title}</h3>
+                          <p className="text-xs text-slate-400">{job.location}</p>
+                        </div>
+                      </div>
+                      <div className={`text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r ${matchScoreColor(job.matchScore)} text-slate-900`}>
+                        {job.matchScore}%
                       </div>
                     </div>
-                    <div className={`text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r ${matchScoreColor(job.matchScore)} text-slate-900`}>
-                      {job.matchScore}%
+                    <div className="flex flex-wrap gap-2 text-xs">
+                      <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">{job.workType}</span>
+                      <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">{job.seniority}</span>
+                      <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">{job.experience}</span>
+                      <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">Posted {formatDate(job.postedAt)}</span>
                     </div>
-                  </div>
-                  <div className="flex flex-wrap gap-2 text-xs">
-                    <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">{job.workType}</span>
-                    <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">{job.seniority}</span>
-                    <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">{job.experience}</span>
-                    <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">Posted {formatDate(job.postedAt)}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {(job.techStack.length ? job.techStack : ['Not specified']).map((skill) => (
-                      <span
-                        key={`${job.id}-${skill}`}
-                        className={`text-xs px-2 py-1 rounded-full ${
-                          job.matchedSkills.includes(skill.toLowerCase())
-                            ? 'bg-emerald-500/20 text-emerald-200'
-                            : 'bg-rose-500/20 text-rose-200'
-                        }`}
+                    <div className="flex flex-wrap gap-2">
+                      {(job.techStack.length ? job.techStack : ['Not specified']).map((skill) => (
+                        <span
+                          key={`${job.id}-${skill}`}
+                          className={`text-xs px-2 py-1 rounded-full ${
+                            job.matchedSkills.includes(skill.toLowerCase())
+                              ? 'bg-emerald-500/20 text-emerald-200'
+                              : 'bg-rose-500/20 text-rose-200'
+                          }`}
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      <button
+                        className="px-4 py-2 rounded-xl bg-accent text-white text-sm"
+                        onClick={() => addToTracker(job.id)}
+                        disabled={jobIdsInTracker.has(job.id)}
                       >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    <button
-                      className="px-4 py-2 rounded-xl bg-accent text-white text-sm"
-                      onClick={() => addToTracker(job.id)}
-                      disabled={jobIdsInTracker.has(job.id)}
-                    >
-                      {jobIdsInTracker.has(job.id) ? 'Already Tracked' : 'Save to Tracker'}
-                    </button>
-                    <button
-                      className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm text-slate-200"
-                      onClick={() => setSelectedJob(job)}
-                    >
-                      View Details
-                    </button>
-                    <a
-                      href={job.applyLink || undefined}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`px-4 py-2 rounded-xl text-sm ${
-                        job.applyLink
-                          ? 'bg-white/5 border border-white/10 text-slate-200 hover:bg-white/10'
-                          : 'bg-white/5 text-slate-500 cursor-not-allowed'
-                      }`}
-                      onClick={(event) => {
-                        if (!job.applyLink) event.preventDefault()
-                      }}
-                    >
-                      Apply Link
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
+                        {jobIdsInTracker.has(job.id) ? 'Already Tracked' : 'Save to Tracker'}
+                      </button>
+                      <button
+                        className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm text-slate-200"
+                        onClick={() => setSelectedJob(job)}
+                      >
+                        View Details
+                      </button>
+                      <a
+                        href={job.applyLink || undefined}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`px-4 py-2 rounded-xl text-sm ${
+                          job.applyLink
+                            ? 'bg-white/5 border border-white/10 text-slate-200 hover:bg-white/10'
+                            : 'bg-white/5 text-slate-500 cursor-not-allowed'
+                        }`}
+                        onClick={(event) => {
+                          if (!job.applyLink) event.preventDefault()
+                        }}
+                      >
+                        Apply Link
+                      </a>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key={job.id}
+                    whileHover={{ y: -2 }}
+                    className="glass rounded-3xl p-5 border border-white/10 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4"
+                  >
+                    <div className="flex-1 space-y-3">
+                      <div className="flex items-center gap-3">
+                        <CompanyLogo name={job.company} logo={job.logo} />
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                            {job.company}
+                          </p>
+                          <h3 className="text-lg font-semibold text-white">{job.title}</h3>
+                          <p className="text-xs text-slate-400">{job.location}</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap gap-2 text-xs">
+                        <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">{job.workType}</span>
+                        <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">{job.seniority}</span>
+                        <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">{job.experience}</span>
+                        <span className="px-2 py-1 rounded-full bg-white/10 text-slate-200">Posted {formatDate(job.postedAt)}</span>
+                      </div>
+                    </div>
+                    <div className="lg:w-[320px] space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className={`text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r ${matchScoreColor(job.matchScore)} text-slate-900`}>
+                          {job.matchScore}%
+                        </div>
+                        <button
+                          className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-200"
+                          onClick={() => setSelectedJob(job)}
+                        >
+                          View Details
+                        </button>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {(job.techStack.length ? job.techStack : ['Not specified']).map((skill) => (
+                          <span
+                            key={`${job.id}-${skill}`}
+                            className={`text-xs px-2 py-1 rounded-full ${
+                              job.matchedSkills.includes(skill.toLowerCase())
+                                ? 'bg-emerald-500/20 text-emerald-200'
+                                : 'bg-rose-500/20 text-rose-200'
+                            }`}
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        <button
+                          className="px-3 py-1.5 rounded-lg bg-accent text-white text-xs"
+                          onClick={() => addToTracker(job.id)}
+                          disabled={jobIdsInTracker.has(job.id)}
+                        >
+                          {jobIdsInTracker.has(job.id) ? 'Already Tracked' : 'Save to Tracker'}
+                        </button>
+                        <a
+                          href={job.applyLink || undefined}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={`px-3 py-1.5 rounded-lg text-xs ${
+                            job.applyLink
+                              ? 'bg-white/5 border border-white/10 text-slate-200 hover:bg-white/10'
+                              : 'bg-white/5 text-slate-500 cursor-not-allowed'
+                          }`}
+                          onClick={(event) => {
+                            if (!job.applyLink) event.preventDefault()
+                          }}
+                        >
+                          Apply Link
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+                ),
+              )}
+              {filteredJobs.length === 0 && (
+                <div className="glass rounded-3xl border border-white/10 p-8 text-center text-slate-300">
+                  No jobs match the selected filters. Try changing job type, location, or search text.
+                </div>
+              )}
             </section>
           </>
         )}
