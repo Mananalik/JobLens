@@ -8,6 +8,9 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   update-feed:
     runs-on: ubuntu-latest
@@ -23,7 +26,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run        git add .github/workflows/daily-jobs-feed.yml
+        git commit -m "ci: force GitHub JS actions on Node 24"
+        git push: npm ci
 
       - name: Generate daily jobs feed
         env:
