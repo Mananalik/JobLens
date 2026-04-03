@@ -26,9 +26,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run        git add .github/workflows/daily-jobs-feed.yml
-        git commit -m "ci: force GitHub JS actions on Node 24"
-        git push: npm ci
+        run: npm ci
 
       - name: Generate daily jobs feed
         env:
