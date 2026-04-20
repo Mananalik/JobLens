@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-19T03:41:57.698Z",
+  "generatedAt": "2026-04-20T03:44:29.231Z",
   "source": "daily-multi-source-pipeline",
   "config": {
     "domains": [
@@ -326,22 +326,37 @@
     "enabled": true,
     "actorId": "worldunboxer/rapid-linkedin-scraper"
   },
-  "total": 1,
+  "total": 2,
   "jobs": [
     {
-      "id": "arbeitnow-quantitative-developer-algorithmic-options-trading-munich-431190",
-      "title": "Quantitative Developer - Algorithmic Options Trading",
-      "companyName": "CuteMarkets",
+      "id": "arbeitnow-freelancer-gtm-engineer-ai-automation-specialist-n8n-clay-dulmen-216727",
+      "title": "Freelancer GTM Engineer / AI Automation Specialist (n8n & Clay)",
+      "companyName": "Simon Gerwert - Sophie",
+      "companyLogo": "",
+      "location": "Dülmen",
+      "workplaceType": "remote",
+      "description": "<p>Wer bin ich</p>\n<p>Hallo, ich heiße Simon Gerwert (29, Masterstudent aus NRW). Ich baue „<strong>Sophie</strong>“ – das moderne Buchungsportal, das die fragmentierte europäische Campingbranche digitalisiert. Ich bin das „Airbnb für Camping“. Die technische Plattform wird bereits von einem Dev-Team finalisiert. Nun suche ich das „Gehirn“ hinter meiner Wachstums-Maschine.</p>\n<h2>Aufgaben</h2>\n<p>Die Mission</p>\n<p>Ich suche keine klassischen Marketer, sondern einen GTM Engineer. Deine Aufgabe ist es, eine Revenue-Infrastruktur aufzubauen, die Sophie von Null auf eine europaweite Marktabdeckung skaliert. Ich will nicht „spammen“, sondern personalisieren und den Gastgeber dort abholen wo er gerade ist.</p>\n<p>Deine Aufgaben</p>\n<ol>\n<li>Aufbau einer durchdachten <strong>Marketing- und Vertriebsstruktur</strong> für Sophie mit sinnvoller Unterstützung durch KI</li>\n<li>Brand Building/Architecture: Aufbau einer KI-gestützten Content-Pipeline (Text, Bild, Video), die Sophie vom ersten Tag an wie einen Marktführer wirken lässt.</li>\n<li>Host-Acquisition Engine: Entwicklung eines agentischen Workflows (n8n + Clay), der Campingplätze recherchiert, qualifiziert und individuell anspricht.</li>\n<li>Multi-Channel Outreach: Skalierung von personalisierten Kampagnen über E-Mail, LinkedIn und Physical Mail (Pingen-API).</li>\n<li>Data Governance: Integration im Sophie CRM und Aufbau von KPI-Dashboards zur Steuerung des Wachstums.</li>\n</ol>\n<p>Dein Profil</p>\n<ol>\n<li>Technik: Du lebst in n8n (Self-hosted) und beherrschst Clay (Waterfall Enrichment, Claygent).</li>\n<li>KI: Du weißt, wie man Claude 4.x und GPT-5.x via API so drosselt und steuert, dass sie keine Halluzinationen produzieren.</li>\n<li>Marketing: Du verstehst B2B-Sales-Zyklen und weißt, wie man Brand Building und Performance-Sales verknüpft.</li>\n<li>Compliance: Du kennst die rechtlichen Grenzen (§ 7 UWG) und baust Systeme, die das Unternehmen schützen.</li>\n</ol>\n<p>Rahmenbedingungen</p>\n<ol>\n<li>Budget: 10.000 € fix für das Projekt-Setup (Phasen June – Nov 2026).</li>\n<li>Marketing-Budget: 1.000 € – 5.000 € für Tools, Ads und API-Kosten stehen zur Verfügung.</li>\n<li>Modell: Remote mit regelmäßigen Jour-Fixe.</li>\n<li>Perspektive: Bei passender Zusammenarbeit ist eine längerfristige Fortsetzung ausdrücklich gewünscht</li>\n</ol>\n<h2>Qualifikation</h2>\n<p>Hast du Interesse, Teil dieses spannenden Projekts zu werden? Dann melde dich zusätzlich mit den Antworten auf folgende Fragen: Wie würdest du für einen einzelnen Campingplatz automatisiert herausfinden, wo Sophie konkret helfen kann – und daraus eine persönliche Ansprache entwickeln, die nicht wie eine Massenmail wirkt?</p>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
+      "jobPostingUrl": "https://www.arbeitnow.com/jobs/companies/simon-gerwert-sophie/freelancer-gtm-engineer-ai-automation-specialist-n8n-clay-dulmen-216727",
+      "postedAt": 1776609029,
+      "source": "arbeitnow",
+      "domain": "graduate engineer trainee",
+      "matchedDomain": "graduate engineer trainee",
+      "boostScore": 40
+    },
+    {
+      "id": "arbeitnow-marketing-specialist-pflichtpraktikum-100-remote-munich-347363",
+      "title": "Marketing Specialist - Pflichtpraktikum 100% remote",
+      "companyName": "Talent Partner GmbH",
       "companyLogo": "",
       "location": "Munich",
       "workplaceType": "remote",
-      "description": "<p>We are a 2 years old venture studio (with 70 employees) and prop shop running options strategies with our own assets.</p>\n<p>We are currently looking for a Quant to join our core team.</p>\n<p>You will work on live strategies with real PnL impact, in a small, technical team with high ownership and fast iteration cycles. You will work on a combination of software engineering + quantitative thinking. This is an opportunity to shape both the trading systems and the broader platform.</p>\n<h2>Tasks</h2>\n<ul>\n<li>Design and implement systematic options strategies (from idea to backtest to production)</li>\n<li>Work directly on live trading systems with real capital at risk</li>\n<li>Analyze large-scale market data to identify inefficiencies and new signals</li>\n<li>Improve execution, latency, and robustness of existing strategies</li>\n<li>Own the full lifecycle: research, validation, deployment, monitoring</li>\n<li>Continuously iterate on models, risk management, and portfolio construction</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>2-5 years experience in quantitative development or algorithmic trading (options experience is a strong plus)</li>\n<li>Strong programming skills (Python incl. math/stats ecosystem required; C++/Scala is a plus)</li>\n<li>Solid understanding of probability, statistics, and numerical methods</li>\n<li>Experience with backtesting, data pipelines, and performance optimization</li>\n<li>Ability to work independently and drive ideas end-to-end</li>\n<li>Interest in markets and building real trading systems (not just research)</li>\n</ul>\n<p>We’re a group of engineers building the company we always wanted to work for:</p>\n<ul>\n<li>Delivering high-end software projects (e.g. DB, Rheinmetall, Miele)</li>\n<li>Building and launching our own products</li>\n<li>Running systematic trading strategies with our own capital</li>\n<li>Focused on speed, ownership, and technical excellence</li>\n</ul>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
-      "jobPostingUrl": "https://www.arbeitnow.com/jobs/companies/cutemarkets/quantitative-developer-algorithmic-options-trading-munich-431190",
-      "postedAt": 1776547826,
+      "description": "<p>Wir haben genug von weichgespülten Jobanzeigen und intransparenten Firmen.<br>\nAura Jobs ist der \"Recruiting-Roast\". Wir nutzen KI-Scraper und echte Insider-Scouts, um den Arbeitsmarkt endlich ehrlich zu machen. Wir bauen nicht nur eine Plattform – wir bauen eine Maschine, die das Recruiting-Game auf den Kopf stellt.</p>\n<h2>Aufgaben</h2>\n<p><strong>Standort:</strong> Remote</p>\n<p><strong>Dauer:</strong> 3–6 Monate (gemäß deiner Studienordnung)</p>\n<p><strong>Deine Mission</strong></p>\n<p>Du bist nicht der \"Praktikant\". Du bist unser verlängerter Arm im Marketing und Business Development. Du lernst, wie man ein Unternehmen mit fast wenig Budget und maximaler KI-Power skaliert.</p>\n<ul>\n<li><strong>Scout-Hacking:</strong> Du akquirierst und steuerst unser Netzwerk an Insider-Scouts.</li>\n<li><strong>Content-Roasting:</strong> Du entwickelst mutige Strategien für TikTok/LinkedIn, um Aura Jobs zur bekanntesten (und gefürchtetsten) Plattform der Szene zu machen.</li>\n<li><strong>Growth Operations:</strong> Du nutzt Tools wie Claude Code und AI-Automations, um Prozesse zu bauen, für die Konzerne ganze Abteilungen brauchen.</li>\n<li><strong>Partnerschaften:</strong> Du holst die ersten 100 Firmen an Bord, die den Mut haben, sich unserem \"Roast\"-Format zu stellen.</li>\n</ul>\n<h2>Qualifikation</h2>\n<p><strong>Dein Profil (Gründer-Mindset)</strong></p>\n<ul>\n<li><strong>Du willst kein Rädchen im Getriebe sein:</strong> Du willst das Getriebe bauen.</li>\n<li><strong>Macher-Attitüde:</strong> Du hast Bock Dinge einfach zu probieren und aus dem Ergebnis zu lernen.</li>\n<li><strong>KI-Affinität:</strong> Du hast keine Angst vor Code oder KI, sondern nutzt sie als Hebel.</li>\n<li><strong>Studium:</strong> Du absolvierst gerade ein Pflichtpraktikum im Bereich BWL, Marketing oder Medienmanagement - oder hast einfach Bock auf den Bereich.</li>\n</ul>\n<h2>Benefits</h2>\n<p><strong>Was du davon hast</strong></p>\n<ol>\n<li><strong>Das echte Playbook:</strong> Du lernst \"Building in Public\", Bootstrapping und technisches Marketing direkt vom Gründer.</li>\n<li><strong>KI-Superpowers:</strong> Ich zeige dir, wie du mit Claude Code und Automatisierung 10x schneller arbeitest als die meisten Unternehmen da draußen.</li>\n<li><strong>Cash for Performance:</strong> Erreichte Ziele (z.B. X neue Firmen, Y Klicks) werden mit harten Boni belohnt. Wer liefert, verdient mit.</li>\n<li><strong>Referenz:</strong> Ein Zeugnis, das zeigt, dass du ein Startup mit aufgebaut hast – wertvoller als jeder Einser-Schnitt.</li>\n</ol>\n<p>🔥 Bereit für den Roast?</p>\n<p>Schick mir deine Bewerbung - bitte inkludiere den gewünschten Zeitraum, in dem Du bei uns einsteigen willst.</p>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
+      "jobPostingUrl": "https://www.arbeitnow.com/jobs/companies/talent-partner-gmbh/marketing-specialist-pflichtpraktikum-100-remote-munich-347363",
+      "postedAt": 1776596423,
       "source": "arbeitnow",
-      "domain": "software engineer",
-      "matchedDomain": "software engineer",
-      "boostScore": 75
+      "domain": "graduate engineer trainee",
+      "matchedDomain": "graduate engineer trainee",
+      "boostScore": 40
     }
   ]
 }
